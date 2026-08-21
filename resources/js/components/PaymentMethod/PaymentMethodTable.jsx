@@ -68,7 +68,7 @@ export default function PaymentMethodTable({
                         <TableRow>
                             <TableHead className="w-[100px]">SL No</TableHead>
                             <TableHead>Payment Method</TableHead>
-                            <TableHead>Currency ID</TableHead>
+                            <TableHead>Country</TableHead>
                             {showActionColumn && <TableHead>Action</TableHead>}
                         </TableRow>
                     </TableHeader>
@@ -101,7 +101,7 @@ export default function PaymentMethodTable({
                             <TableRow key={method.id || method.payment_method}>
                                 <TableCell className="font-medium">{index + 1}</TableCell>
                                 <TableCell className="font-semibold">{method.payment_method}</TableCell>
-                                <TableCell>{method.currency_id ?? '-'}</TableCell>
+                                <TableCell>{method.currency?.Country || 'N/A'}</TableCell>
                                 {showActionColumn && (
                                     <TableCell>
                                         <div className="flex items-center gap-2">

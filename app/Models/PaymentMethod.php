@@ -13,4 +13,9 @@ class PaymentMethod extends Model
         'payment_method',
         
     ];
+    // Define the relationship to Currency
+    public function currency()
+    {
+        return $this->belongsTo(Currency::class);
+    }
 }
