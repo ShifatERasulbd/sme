@@ -10,7 +10,7 @@ class CurrencyConroller extends Controller
 {
     public function index(): JsonResponse
     {
-        return response()->json(Currency::query()->orderBy('id')->get())    ;
+        return response()->json(Currency::orderBy('id')->get())    ;
     }
 
     public function store(Request $request): JsonResponse
@@ -23,7 +23,7 @@ class CurrencyConroller extends Controller
             'Currency_Sign' => ['required', 'string', 'max:20'],
         ]);
 
-        $currency = Currency::query()->create($validated);
+        $currency = Currency::create($validated);
 
         return response()->json($currency, 201);
     }
