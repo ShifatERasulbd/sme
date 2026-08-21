@@ -2,7 +2,8 @@ import {
     Gauge,
     LogOut,
     Users,
-    Currency 
+    Currency ,
+    CreditCard
 } from 'lucide-react';
 import { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -24,7 +25,7 @@ import { useAppContext } from '@/context/AppContext';
 const homeItems = [
     { title: 'Dashboard', icon: Gauge, path: '/dashboard' },
     { title: 'Currency',  icon:Currency , path:'/currency'},
-    { title: 'Payment Method', icon:Currency, path:'/payment-method'}
+    { title: 'Payment Method', icon:CreditCard, path:'/payment-method'}
 ];
 
 const userAccessItems = [

@@ -8,7 +8,7 @@ class PaymentMethodController extends Controller
 {
     public function index(): JsonResponse
     {
-        return response()->json(PaymentMethod::orderBy(id)->get());
+        return response()->json(PaymentMethod::query()->orderBy('id')->get());
     }
 
     public function store(Request $request):JsonResponse

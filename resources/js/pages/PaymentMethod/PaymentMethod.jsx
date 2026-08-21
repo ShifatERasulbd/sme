@@ -26,7 +26,7 @@ export default function PaymentMethodPage() {
     const [paymentMethodToDelete, setPaymentMethodToDelete] = useState(null);
 
     useEffect(() => {
-        setPageTitle('Payment Method');
+        setPageTitle('Payment Method'); 
     }, [setPageTitle]);
 
     useEffect(() => {
@@ -48,7 +48,9 @@ export default function PaymentMethodPage() {
             } finally {
                 if (!ignore) {
                     setIsLoading(false);
+                   
                 }
+                
             }
         }
 
@@ -105,7 +107,7 @@ export default function PaymentMethodPage() {
                     <AlertDialogHeader>
                         <AlertDialogTitle>Delete Payment Method</AlertDialogTitle>
                         <AlertDialogDescription>
-                            Are you sure you want to delete <strong>{paymentMethodToDelete?.name}</strong>? This action cannot be undone.
+                            Are you sure you want to delete <strong>{paymentMethodToDelete?.payment_method}</strong>? This action cannot be undone.
                         </AlertDialogDescription>
                     </AlertDialogHeader>
                     <AlertDialogFooter>

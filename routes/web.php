@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CurrencyConroller;
+use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\GoogleAuthController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -40,6 +41,7 @@ Route::prefix('api')->group(function () {
 
         Route::apiResource('/users', UserController::class);
         Route::apiResource('/currencies', CurrencyConroller::class);
+        Route::apiResource('/payment-methods', PaymentMethodController::class);
     });
 });
 

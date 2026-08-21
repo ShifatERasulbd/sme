@@ -35,9 +35,8 @@ export default function PaymentMethodTable({
     const filtered = paymentMethods.filter((method) => {
         const query = search.toLowerCase();
         return (
-            method.name?.toLowerCase().includes(query) ||
-            method.code?.toLowerCase().includes(query) ||
-            method.description?.toLowerCase().includes(query)
+            method.payment_method?.toLowerCase().includes(query) ||
+            String(method.currency_id ?? '').toLowerCase().includes(query)
         );
     });
     
@@ -68,9 +67,8 @@ export default function PaymentMethodTable({
                     <TableHeader>
                         <TableRow>
                             <TableHead className="w-[100px]">SL No</TableHead>
-                            <TableHead>Method Name</TableHead>
-                            <TableHead>Code</TableHead>
-                            <TableHead>Description</TableHead>
+                            <TableHead>Payment Method</TableHead>
+                            <TableHead>Currency ID</TableHead>
                             {showActionColumn && <TableHead>Action</TableHead>}
                         </TableRow>
                     </TableHeader>
@@ -100,11 +98,10 @@ export default function PaymentMethodTable({
                         )}
 
                         {!isLoading && filtered.map((method, index) => (
-                            <TableRow key={method.id || method.code}>
+                            <TableRow key={method.id || method.payment_method}>
                                 <TableCell className="font-medium">{index + 1}</TableCell>
-                                <TableCell className="font-semibold">{method.name}</TableCell>
-                                <TableCell>{method.code}</TableCell>
-                                <TableCell>{method.description || '-'}</TableCell>
+                                <TableCell className="font-semibold">{method.payment_method}</TableCell>
+                                <TableCell>{method.currency_id ?? '-'}</TableCell>
                                 {showActionColumn && (
                                     <TableCell>
                                         <div className="flex items-center gap-2">
@@ -115,7 +112,7 @@ export default function PaymentMethodTable({
                                                             <Button
                                                                 variant="ghost"
                                                                 size="icon"
-                                                                aria-label={`Edit ${method.name}`}
+                                                                aria-label={`Edit ${method.payment_method}`}
                                                                 onClick={() => onEdit?.(method.id)}
                                                             >
                                                                 <Pencil />
@@ -132,7 +129,7 @@ export default function PaymentMethodTable({
                                                             <Button
                                                                 variant="ghost"
                                                                 size="icon"
-                                                                aria-label={`Delete ${method.name}`}
+                                                                aria-label={`Delete ${method.payment_method}`}
                                                                 onClick={() => onRequestDelete?.(method)}
                                                                 disabled={deletingId === method.id}
                                                             >

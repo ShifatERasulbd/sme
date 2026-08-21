@@ -46,6 +46,8 @@ const EditCurrency = lazyWithRetry(() => import('@/pages/Currency/editCurrency')
 
 // Payment Method
 const PaymentMethodPage = lazyWithRetry(() => import('@/pages/PaymentMethod/PaymentMethod'), 'payment-method');
+const AddPaymentMethodPage=lazyWithRetry(()=>import('@/pages/PaymentMethod/addPaymentMethod'),'addPaymentMethod');
+
 function AuthScreen({ children }) {
     return (
         <main className="flex min-h-screen items-center justify-center bg-slate-100 px-4 py-10 text-foreground">
@@ -119,6 +121,7 @@ export default function App() {
 
                             {/* Payment method */}
                             <Route path="payment-method" element={<PaymentMethodPage/>}/>
+                            <Route path="payment-method/add" element={<AddPaymentMethodPage />} />
                             </Route>
 
 
